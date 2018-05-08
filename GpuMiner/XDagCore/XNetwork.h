@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
 #include "netinet/in.h"
 #include "sys/socket.h"
 typedef int SOCKET;

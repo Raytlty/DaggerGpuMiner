@@ -1,7 +1,7 @@
 #include "PathUtils.h"
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
 #include <libgen.h>
-#include <linux/limits.h>
+#include <climits>
 #include <unistd.h>
 #elif _WIN32
 #include <shlwapi.h>
@@ -9,7 +9,7 @@
 
 std::string PathUtils::GetModuleFolder()
 {
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
     char result[PATH_MAX];
     if (readlink("/proc/self/exe", result, PATH_MAX) > 0) {
       return std::string(dirname(result)).append("/");
@@ -31,7 +31,7 @@ std::string PathUtils::GetModuleFolder()
 
 bool PathUtils::FileExists(const std::string& fname)
 {
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
     return access(fname.c_str(), F_OK) != -1;
 #elif _WIN32
     return PathFileExists(fname.c_str()) == TRUE;

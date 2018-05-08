@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "Core/Log.h"
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
 #include <arpa/inet.h>
 #include <fcntl.h>
 #include <netdb.h>

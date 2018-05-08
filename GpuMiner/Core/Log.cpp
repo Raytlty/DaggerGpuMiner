@@ -10,12 +10,9 @@
 #include <map>
 
 #include <thread>
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
 #include <typeinfo>
 using std::type_info;
-#endif
-#ifdef __APPLE__
-#include <pthread.h>
 #endif
 #include "Guards.h"
 

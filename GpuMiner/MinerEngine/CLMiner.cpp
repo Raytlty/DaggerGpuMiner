@@ -27,7 +27,7 @@ using namespace XDag;
 
 unsigned CLMiner::_sWorkgroupSize = CLMiner::_defaultLocalWorkSize;
 unsigned CLMiner::_sInitialGlobalWorkSize = CLMiner::_defaultGlobalWorkSizeMultiplier * CLMiner::_defaultLocalWorkSize;
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
 std::string CLMiner::_clKernelName = "CL/CLMiner_kernel.cl";
 #else
 std::string CLMiner::_clKernelName = "CLMiner_kernel.cl";
