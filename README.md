@@ -22,6 +22,34 @@ Windows:
 OpenCL SDK can be downloaded by link https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/. Also you can try another OpenCL SDK vendors. Path to intalled SDK should be written to a new environment variable OPENCL_SDK.  
 Boost and OpenSSL libraries are included by Nuget Manager and should be downloaded automatically.
 
+MacOS:
+
+Simply do `Make all`.
+
+To list your devices:
+```
+./xdag-gpu -list-devices -G
+
+Listing OpenCL devices.
+FORMAT: [platformID] [deviceID] deviceName
+[0] [0] Intel(R) HD Graphics 630
+	CL_DEVICE_TYPE: GPU
+	CL_DEVICE_GLOBAL_MEM_SIZE: 1610612736
+	CL_DEVICE_MAX_MEM_ALLOC_SIZE: 402653184
+	CL_DEVICE_MAX_WORK_GROUP_SIZE: 256
+[0] [1] AMD Radeon Pro 560 Compute Engine
+	CL_DEVICE_TYPE: GPU
+	CL_DEVICE_GLOBAL_MEM_SIZE: 4294967296
+	CL_DEVICE_MAX_MEM_ALLOC_SIZE: 1073741824
+	CL_DEVICE_MAX_WORK_GROUP_SIZE: 256
+```
+
+Mining With Only AMD GPU:
+
+```
+./xdag-gpu -G -a znHUSiPuvgT/DxGG5ynLYwkW0A5whAqX -p xdag.vspool.com:13654 -opencl-devices 1
+```
+
 Linux:  
 AMD driver / SDK link https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/  
 Nvidia driver / SDK link https://developer.nvidia.com/cuda-downloads
