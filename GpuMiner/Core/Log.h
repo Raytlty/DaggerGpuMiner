@@ -197,8 +197,8 @@ namespace XDag
 #define cslog(X) nslog(X)
 #else
 #ifdef NDEBUG
-#define clog(X) if (X::debug) {} else dev::LogOutputStream<X, true>()
-#define cslog(X) if (X::debug) {} else dev::LogOutputStream<X, false>()
+#define clog(X) if (X::debug) {} else Xdag::LogOutputStream<X, true>()
+#define cslog(X) if (X::debug) {} else Xdag::LogOutputStream<X, false>()
 #else
 #define clog(X) XDag::LogOutputStream<X, true>()
 #define cslog(X) XDag::LogOutputStream<X, false>()

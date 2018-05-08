@@ -1,6 +1,6 @@
 CC = g++ -O
-CPPFLAGS = -std=c++11 -I. -I/opt/AMDAPPSDK-3.0/include/
-LDFLAGS = -L/opt/AMDAPPSDK-3.0/lib/x86_64/sdk
+CPPFLAGS = -std=c++11 -I. -I/System/Library/Frameworks/OpenCL.framework/Headers/
+LDFLAGS = -L/System/Library/Frameworks/OpenCL.framework/Libraries/
 
 SRCS = Core/CommonData.cpp Core/Farm.cpp Core/Log.cpp Core/Miner.cpp Core/MinerManager.cpp Core/Worker.cpp \
        Hash/sha256.cpp Hash/sha256_mod.cpp MinerEngine/CLMiner.cpp MinerEngine/XCpuMiner.cpp \
@@ -16,6 +16,6 @@ OBJS = $(SRCS:.cpp=.o)
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $(INCLUDES) $< -o $@
 
 xdag-gpu: main.o $(OBJS)
-	$(CC) -o xdag-gpu $(LDFLAGS) main.o $(OBJS) -lOpenCL -lpthread -lboost_system
+	$(CC) -o xdag-gpu $(LDFLAGS) main.o $(OBJS) -framework OpenCL -lpthread -lboost_system
 
 all: xdag-gpu
