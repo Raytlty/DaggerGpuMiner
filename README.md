@@ -47,7 +47,7 @@ FORMAT: [platformID] [deviceID] deviceName
 Mining With Only AMD GPU:
 
 ```
-./xdag-gpu -G -a znHUSiPuvgT/DxGG5ynLYwkW0A5whAqX -p xdag.vspool.com:13654 -opencl-devices 1
+ ./xdag-gpu -G -a <WALLET_ADDRESS> -p <POOL_ADDRESS> --opencl-devices 1
 ```
 
 Linux:  
